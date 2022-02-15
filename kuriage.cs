@@ -19,6 +19,11 @@ namespace WindowsFormsApp1
             {
                 i = i * -1;
                 x = i % 10;
+                if (x == 0) 
+                {
+                    i = i * -1;
+                    return i;
+                }
                 y = i - x;
                 i = y + 10;
                 i = i * -1;
