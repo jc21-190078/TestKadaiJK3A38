@@ -17,7 +17,7 @@ namespace WindowsFormsApp1
             for(int z = 0; z < r; z++)
             {                      
 
-
+                 
                 for(int y = cnt; y <= g.Length; y++)
                 {
                     if (y > g.Length)
