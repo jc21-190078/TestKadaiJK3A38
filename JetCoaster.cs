@@ -4,58 +4,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace WindowsFormsApp1
 {
+
     public class JetCoaster
     {
-        public static int ride(int k,int[] g,int r)
+        public static int ride
+        (int k, int[] g, int r)
         {
-            int b = 0 ;//添え字
-            int all = 0; //搭乗人数
-            int cnt = 0;　//現在の添字
-            int c = 0;
-            for(int z = 0; z < r; z++)
-            {                      
+            int[] cap = g;
+            int[] newcap = new int[g.Length];
+            int boa = 0;
+            int ret = 0;
 
-                 
-                for(int y = cnt; y <= g.Length; y++)
+
+
+            for (int a = 0; a < r; a++)
+            {
+                int count = 0;
+                for (int b = 0; b < cap.Length; b++)
                 {
-                    if (y > g.Length)
+                    int boac = boa;
+                    boa += cap[b];
+                    count++;
+                    if (boa > k)
                     {
-                        y--;
-                    }
-                    if (b  > k) //定員
-                    {
-                        b = c;
-                        c = 0;
-                        all = all + b;
-                        b=c;
-                        cnt = y-1; 
+                        boa = boac;
+                        count--;
                         break;
                     }
-                    c = b;
-                    b = b + g[y];
+                }
+                for (int c = 0; c < count; c++)
+                {
+                    int bff = cap[0];
+                    Array.Copy(cap, 1, newcap, 0, cap.Length - 1);
+                    newcap[newcap.Length - 1] = bff;
 
-                    if (y + 1 == g.Length && b > k)
-                    {
-                        z--;
-                        c = b;
-                        break;
-                    }else if (y + 1 == g.Length)
-                    {
-                        y = -1;
-                        cnt = 0;
-                    }
-                    else
-                    {
 
-                    }
 
-                }                
+                    cap = newcap;
+                }
+                ret += boa;
+                boa = 0;
+            }
 
-            }           
 
-            return all;
+
+            return ret;
         }
     }
 }
