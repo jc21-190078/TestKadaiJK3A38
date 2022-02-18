@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
 
             x = 0;
             y = 0;
-
+             
             if (i < 0)
             {
                 i = i * -1;
